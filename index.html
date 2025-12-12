@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio - Home</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .container { width: 80%; margin: auto; }
+        .card { background: #fff; padding: 20px; margin: 15px 0; border-radius: 8px; box-shadow: 0 0 10px #ccc; }
+        textarea, input { width: 100%; padding: 10px; font-size: 16px; margin-top: 10px; }
+        button { padding: 10px 20px; margin-top: 10px; cursor: pointer; }
+    </style>
+
+    <script>
+        function updateAbout() {
+            let aboutText = document.getElementById("aboutInput").value;
+            if (aboutText.trim() === "") {
+                alert("Please write something!");
+                return;
+            }
+            document.getElementById("aboutContent").innerText = aboutText;
+            document.getElementById("aboutInput").value = "";
+        }
+
+        function addSkill() {
+            let skill = document.getElementById("skillInput").value;
+            if (skill.trim() === "") {
+                alert("Please write a skill!");
+                return;
+            }
+
+            let li = document.createElement("li");
+            li.innerText = skill;
+            document.getElementById("skillsList").appendChild(li);
+
+            document.getElementById("skillInput").value = "";
+        }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <h1>My Personal Portfolio</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+</nav>
+
+<section class="container">
+
+    
+    <h2>About Me</h2>
+    <div class="card">
+        <p id="aboutContent">
+            Hello! I am a web developer skilled in HTML, CSS, JavaScript. This portfolio showcases my projects, skills, resume, and blogs.
+        </p>
+    </div>
+
+    
+    <textarea id="aboutInput" placeholder="Write new About Me..."></textarea>
+    <button onclick="updateAbout()">Update About Me</button>
+
+
+    
+    <h2>Skills</h2>
+    <div class="card">
+        <ul id="skillsList">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ul>
+    </div>
+
+    
+    <input type="text" id="skillInput" placeholder="Add a new skill...">
+    <button onclick="addSkill()">Add Skill</button>
+
+</section>
+
+</body>
+</html>

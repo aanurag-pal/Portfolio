@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio - Contact</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        function sendMessage() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+
+            if (name.trim() === "" || email.trim() === "" || message.trim() === "") {
+                alert("Please fill all fields before submitting.");
+                return false;
+            }
+
+            // Create message card
+            let msgCard = document.createElement("div");
+            msgCard.className = "card";
+
+            let title = document.createElement("h3");
+            title.textContent = "Message from " + name;
+
+            let emailLine = document.createElement("p");
+            emailLine.textContent = "Email: " + email;
+
+            let msgContent = document.createElement("p");
+            msgContent.textContent = message;
+
+            msgCard.appendChild(title);
+            msgCard.appendChild(emailLine);
+            msgCard.appendChild(msgContent);
+
+            // Add the message to the message box
+            document.getElementById("messages").prepend(msgCard);
+
+            alert("Message Sent Successfully!");
+            
+            // Clear fields
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("message").value = "";
+
+            return false;
+        }
+    </script>
+
+</head>
+<body>
+
+<header><h1>Contact Me</h1></header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+</nav>
+
+<section class="container">
+
+    <div class="card">
+        <h2>Send a Message</h2>
+
+        <input type="text" id="name" placeholder="Your Name">
+        <input type="email" id="email" placeholder="Your Email">
+        <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+
+        <button onclick="sendMessage()">Submit</button>
+    </div>
+
+    <h2>Received Messages</h2>
+    <div id="messages"></div>
+
+</section>
+
+</body>
+</html>

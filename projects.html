@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio - Projects</title> 
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container { width: 80%; margin: auto; }
+        .card { background: #fff; padding: 20px; margin: 15px 0; border-radius: 8px; box-shadow: 0 0 10px #ccc; }
+        .input-box { margin: 20px 0; }
+        textarea { width: 100%; height: 120px; padding: 10px; font-size: 16px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; margin-top: 10px; }
+    </style>
+
+    <script>
+        function addProject() {
+            let text = document.getElementById("projectText").value;
+
+            if(text.trim() === ""){
+                alert("Please write something!");
+                return;
+            }
+
+            let newCard = document.createElement("div");
+            newCard.className = "card";
+            newCard.innerHTML = `<h3>User Project:</h3><p>${text}</p>`;
+
+            document.getElementById("projectList").appendChild(newCard);
+
+            document.getElementById("projectText").value = ""; 
+        }
+    </script>
+</head>
+
+<body>
+<header><h1>My Projects</h1></header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+</nav>
+
+<section class="container">
+
+    
+    <div class="card">
+        <h3>Project 1: Portfolio Website</h3>
+        <p>A responsive website built using HTML, CSS, and JavaScript.</p>
+    </div>
+
+    
+    <div class="input-box">
+        <h2>Write Your Own Project</h2>
+        <textarea id="projectText" placeholder="Write about your project..."></textarea>
+        <br>
+        <button oncli

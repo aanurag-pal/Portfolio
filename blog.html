@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio - Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function publishBlog() {
+            let content = document.getElementById("blogInput").value;
+
+            if(content.trim() === ""){
+                alert("Please write something before publishing!");
+                return;
+            }
+
+            
+            let card = document.createElement("div");
+            card.className = "card";
+
+            
+            let heading = document.createElement("h3");
+            heading.textContent = "New Blog Post";
+
+            
+            let paragraph = document.createElement("p");
+            paragraph.textContent = content;
+
+            
+            card.appendChild(heading);
+            card.appendChild(paragraph);
+
+            
+            document.getElementById("posts").prepend(card);
+
+            
+            document.getElementById("blogInput").value = "";
+        }
+    </script>
+</head>
+<body>
+
+<header><h1>My Blog</h1></header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+</nav>
+
+<section class="container">
+    <h2>Write Your Thoughts</h2>
+
+    <div class="card">
+        <textarea id="blogInput" rows="5" placeholder="Write your blog content here..."></textarea>
+        <button onclick="publishBlog()">Publish</button>
+    </div>
+
+    <h2>Recent Posts</h2>
+
+    <div id="posts">
+
+        <div class="card">
+            <h3>Why Web Development is Awesome</h3>
+            <p>Web development allows you to bring ideas to life... </p>
+        </div>
+
+        <div class="card">
+            <h3>Learning JavaScript</h3>
+            <p>JavaScript makes websites dynamic and interactive...</p>
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>
